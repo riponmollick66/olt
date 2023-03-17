@@ -1,0 +1,10 @@
+enable
+config
+hostname OLT-Rangpur
+interface vlan 1
+no shutdown
+ip address 192.168.100.251 255.255.255.248
+exit
+ip default-route 192.168.100.249
+exit
+write all
