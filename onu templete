@@ -1,0 +1,16 @@
+enable
+config
+epon onu-config-template gig
+cmd-sequence 1 epon onu all-port ctc loopback detect
+cmd-sequence 2 epon onu all-port ctc notify loopback
+cmd-sequence 3 epon sla upstream pir 1000000 cir 1000
+cmd-sequence 4 epon sla downstream pir 1000000 cir 1000
+cmd-sequence 5 epon onu all-port ctc notify link
+exit
+
+interface range epON 0/1-4
+epon pre-config-template gig binded-onu-llid 1-64
+exit
+
+write all
+reboot
